@@ -1,0 +1,195 @@
+/* Asegurarse de que las etiquetas tengan color negro */
+label {
+    font-size: 16px; /* Aumenta el tamaño de la fuente */
+    color: #000000 !important; /* Asegura que las etiquetas tengan color negro */
+    margin-bottom: 8px; /* Espacio debajo de la etiqueta */
+    display: block; /* Asegura que la etiqueta esté en su propia línea */
+}
+
+/* Estilo para los campos de selección (select) */
+select {
+    background-color: #34495e; /* Fondo oscuro para los campos de selección */
+    color: white; /* Texto blanco en los campos de selección */
+    border: 1px solid #2c3e50; /* Borde oscuro para que destaque */
+    border-radius: 4px;
+    padding: 10px;
+    width: 100%; /* Hace que el campo ocupe el 100% del ancho */
+    font-size: 16px; /* Aumenta el tamaño de la fuente para mejorar la legibilidad */
+    margin-bottom: 15px; /* Espacio debajo de los campos de selección */
+}
+
+/* Para mejorar la visibilidad de los botones */
+button {
+    font-size: 18px; /* Aumenta el tamaño de la fuente del botón */
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+/* Estilo para el resultado y mensaje de carga */
+#result, #loadingMessage {
+    color: #000000 !important; /* Asegura que el texto sea negro */
+    font-size: 18px;
+    font-weight: bold; /* Resalta el texto */
+}
+
+
+/* Asegurarse de que las etiquetas (labels) tengan color negro */
+label {
+    font-size: 16px; /* Tamaño de fuente adecuado */
+    color: #000000 !important; /* Asegura que las etiquetas sean de color negro */
+    margin-bottom: 8px; /* Espacio debajo de la etiqueta */
+    display: block; /* Asegura que la etiqueta esté en su propia línea */
+}
+
+/* Ajustes para los selectores (select) */
+select {
+    background-color: #2d2d2d; /* Fondo oscuro para los campos de selección */
+    color: white; /* Texto blanco en los campos de selección */
+    border: 1px solid #8a4062; /* Borde verde para que destaque */
+    border-radius: 4px;
+    padding: 10px;
+    width: 100%; /* Hace que el campo ocupe el 100% del ancho */
+    font-size: 16px; /* Aumenta el tamaño de la fuente para mejorar la legibilidad */
+    margin-bottom: 15px; /* Espacio debajo de los campos de selección */
+}
+
+/* Ajustes para los botones */
+button {
+    font-size: 18px; /* Aumenta el tamaño de la fuente del botón */
+    background-color: #bb3a70;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%; /* Ajusta el tamaño para que ocupe el 100% */
+}
+
+/* Asegura que el mensaje de carga también esté visible en color amarillo */
+#loadingMessage {
+    color: #FFD700; /* Color amarillo para el mensaje de carga */
+    font-size: 18px; 
+    font-weight: bold;
+}
+
+/* Estilos para mostrar los resultados de los algoritmos */
+#result {
+    text-align: center;
+}
+
+#resultadoText {
+    color: #ffffff; /* Asegura que el texto del resultado sea blanco */
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#result h2 {
+    color: #FF6347; /* Color rojo para el título del resultado */
+    font-size: 20px;
+}
+
+/* Mejorar la visibilidad de las secciones */
+#bfsSection, #caminoCortoSection {
+    background-color: #333; /* Fondo oscuro para las secciones */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+h1, h2 {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+h1 {
+    color: #8b3cb9; /* Color verde para el título principal */
+}
+
+h2 {
+    color: #8e719b; /* Color verde para los subtítulos */
+}
+
+
+/* Estilo para el contenedor del mensaje de carga y resultado */
+#loadingMessage, #result {
+    background-color: #000000; /* Fondo negro */
+    color: white; /* Texto blanco */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 20px; /* Relleno interno para que no quede pegado al borde */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para dar más estilo */
+}
+
+/* Mensaje de carga */
+#loadingMessage {
+    color: #FFD700; /* Color amarillo para el mensaje de carga */
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Resultado */
+#result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #000000; /* Fondo negro para el contenedor del resultado */
+}
+
+#resultadoText {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff; /* Asegura que el texto del resultado sea blanco */
+}
+
+#result h2 {
+    color: #FF6347; /* Color rojo para el título del resultado */
+    font-size: 20px;
+}
+
+
+/* Estilo para la tabla */
+#tabla {
+    background-color: #F9D5D3; /* Rosa pastel claro para el fondo de la tabla */
+    color: #333; /* Texto oscuro para mejor contraste */
+    border-radius: 8px; /* Bordes redondeados para la tabla */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para darle profundidad */
+}
+
+/* Estilo para las celdas de la tabla */
+#tabla th, #tabla td {
+    padding: 12px; /* Relleno en las celdas */
+    text-align: center; /* Centrado del texto en las celdas */
+    border: 1px solid #F4A6A0; /* Borde rosa más suave */
+}
+
+/* Estilo para la fila de la cabecera */
+#tabla thead {
+    background-color: #F4A6A0; /* Rosa pastel más fuerte para la cabecera */
+    color: white; /* Texto blanco en la cabecera */
+}
+
+/* Estilo para las filas del cuerpo */
+#tabla tbody tr:nth-child(even) {
+    background-color: #F9D5D3; /* Rosa pastel para filas pares */
+}
+
+#tabla tbody tr:nth-child(odd) {
+    background-color: #F4A6A0; /* Rosa pastel más fuerte para filas impares */
+}
+
+/* Estilo para la fila cuando pasa el ratón por encima */
+#tabla tbody tr:hover {
+    background-color: #F8A7A1; /* Tono más fuerte de rosa al pasar el ratón */
+}
+
+/* Estilo para las celdas vacías */
+#tabla td.text-gray-400 {
+    color: #A9A9A9; /* Gris claro para las celdas vacías */
+}

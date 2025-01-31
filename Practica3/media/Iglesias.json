@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "nombre": "San Juan Bautista de el Valle",
+        "direccion": "Salvador Bustamante Celi y Guayaquil, Loja",
+        "latitud": -4.00531,
+        "longitud": -79.2107
+    },
+    {
+        "id": 2,
+        "nombre": "Santuario Católico Eucarístico San Sebastian",
+        "direccion": "Simon Bolivar y Lourdes ",
+        "latitud": -4.95731,
+        "longitud": -79.2197
+    },
+    {
+        "id": 3,
+        "nombre": "Catedral de Loja",
+        "direccion": "Calle Bolívar y José Antonio Eguiguren",
+        "latitud": -4.00789,
+        "longitud": -79.21105
+    },
+    {
+        "id": 4,
+        "nombre": "Iglesia de Santo Domingo",
+        "direccion": "Jose Antonio Eguiguren y Bolívar ",
+        "latitud": -4.997,
+        "longitud": -79.2047
+    },
+    {
+        "id": 5,
+        "nombre": "Iglesia de San Francisco",
+        "direccion": "Calle Bolívar entre Sucre y Bernardo Valdivieso",
+        "latitud": -4.007532,
+        "longitud": -79.20976
+    },
+    {
+        "id": 6,
+        "nombre": "Basílica de El Cisne",
+        "direccion": "El Cisne, Loja",
+        "latitud": -3.850861,
+        "longitud": -79.426459
+    },
+    {
+        "id": 7,
+        "nombre": "Capilla del Santísimo Sacramento",
+        "direccion": "Calle Mercadillo y Bolívar",
+        "latitud": -4.01654,
+        "longitud": -79.2117
+    },
+    {
+        "id": 8,
+        "nombre": "Iglesia de San Agustín",
+        "direccion": "Av. Universitaria y Colón",
+        "latitud": -4.00192,
+        "longitud": -79.211
+    },
+    {
+        "id": 9,
+        "nombre": "Iglesia de San José Obrero",
+        "direccion": "Calle José Miguel y Eduardo Pinto",
+        "latitud": -4.003523,
+        "longitud": -79.210345
+    },
+    {
+        "id": 10,
+        "nombre": "Iglesia de Las Pitas",
+        "direccion": "Barrio Las Pitas",
+        "latitud": -4.14800,
+        "longitud": -79.17910
+    }
+]

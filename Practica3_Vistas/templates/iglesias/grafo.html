@@ -1,0 +1,111 @@
+{% extends 'templateFirst.html' %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de Grafos</title>
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <style>
+        #mynetwork {
+            width: 90%; /* Ancho del 90% */
+            height: 600px;
+            background-color: #f9f9f9; /* Fondo más suave */
+            margin-left: 0; /* Alinea el grafo a la izquierda */
+            margin-right: 0; /* Elimina cualquier margen derecho */
+        }
+        h2 {
+            text-align: center; /* Centra el título */
+            color: rgb(126, 29, 182); /* Color blanco para el título */
+            margin-top: 30px;   
+        }
+    </style>
+</head>
+<body>
+   
+    <div id="mynetwork"></div>
+
+    <script>
+        // Asegúrate de que los datos estén correctamente formateados en JSON
+        const graphData = JSON.parse('{{ graph_data | tojson | safe }}');
+
+        if (graphData && graphData.nodes && graphData.edges) {
+            // Se asegura de que cada nodo tenga el label y otras propiedades necesarias
+            const nodes = new vis.DataSet(graphData.nodes.map(node => ({
+                id: node.id,
+                label: node.name, // Utiliza el campo 'name' para la etiqueta
+                color: { background: '#000000', border: '#000000' }, // Cambié el color de los nodos a negro
+                size: 20, // Mantén el tamaño de los nodos
+                font: {
+                    size: 18, // Aumenté el tamaño de la fuente
+                    face: 'arial',
+                    color: '#000000', // Color negro para las etiquetas de los nodos (nombres de las iglesias)
+                    align: 'center', // Centra el texto dentro del nodo
+                },
+                borderWidth: 3, // Aumenté el grosor del borde
+                shape: 'image', // Usamos una imagen para la forma del nodo
+                image: 'https://cdn-icons-png.flaticon.com/512/25/25613.png', // URL de la imagen de la iglesia
+            })));
+
+            // Las aristas también deben tener las propiedades correctas
+            const edges = new vis.DataSet(graphData.edges.map(edge => ({
+                from: edge.from,
+                to: edge.to,
+                color: { color: '#800080', highlight: '#800080' }, // Cambié el color a morado para las aristas
+                label: edge.weight.toString(), // Se usa el peso de la arista como etiqueta
+                font: { size: 14, align: 'top', color: '#000000' }, // Ajusté el tamaño de la fuente en las aristas y color negro
+                width: 2, // Aumenté el grosor de las aristas
+                arrows: { 
+                    to: { 
+                        enabled: true, 
+                        scaleFactor: 0.3, // Flechas pequeñas
+                        type: 'circle', // Cambiamos la flecha por un círculo
+                    },
+                    color: '#000000' // Flechas negras
+                },
+            })));
+
+            // Opciones de la red
+            const container = document.getElementById('mynetwork');
+            const data = { nodes, edges };
+
+            const options = { 
+                nodes: {
+                    shape: "image", 
+                    size: 30, 
+                    font: { size: 18, align: 'center' }, // Centra el texto dentro del nodo
+                },
+                edges: { 
+                    arrows: "to", 
+                    physics: true 
+                },
+                physics: {
+                    enabled: true,
+                    barnesHut: {
+                        gravitationalConstant: -5000, // Reduce la fuerza gravitacional para que los nodos estén más separados
+                        centralGravity: 0.1, // Ajusta la gravedad central para hacer que los nodos se repelan más
+                        springLength: 240, // Aumenté la longitud del resorte para más separación (20% más)
+                        springConstant: 0.024, // Aumenté la constante del resorte para más separación (20% más)
+                    },
+                    repulsion: {
+                        springLength: 440, // Aumenté la longitud del resorte para mayor separación (20% más)
+                    },
+                    stabilization: { iterations: 150 },
+                },
+                layout: {
+                    randomSeed: 1, // Cambia esto para obtener diferentes distribuciones
+                }
+            };
+
+            new vis.Network(container, data, options);
+        } else {
+            console.error("Error: No se encontraron datos de grafo");
+        }
+    </script>
+</body>
+</html>
+
+{% endblock %}

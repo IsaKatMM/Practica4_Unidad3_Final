@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PRÁCTICA 3</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/unl.png') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Barra lateral (sidenav) */
+        .sidenav {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px; /* Inicialmente oculta */
+            background-color: rgba(223, 229, 160, 0.95);
+            padding-top: 60px;
+            transition: 0.3s; /* Transición suave */
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: black;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color:rgb(171, 80, 224);
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+            display: none; /* Ocultar inicialmente */
+        }
+
+        /* Barra superior (navbar) */
+        .navbar {
+            background-color: rgba(173, 53, 167, 0.95) !important; /* Tono piel */
+        }
+
+        .navbar-toggler {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+        }
+
+        /* Cuando el menú lateral está abierto */
+        .sidenav.open {
+            left: 0; /* Se mueve hacia la izquierda cuando está abierto */
+        }
+
+        /* Cuando el menú lateral está abierto, mostramos el botón de cerrar */
+        .sidenav.open .closebtn {
+            display: block; /* Muestra el botón de cerrar */
+        }
+
+        /* Estilo del contenido */
+        main {
+            transition: margin-left 0.3s; /* Transición suave */
+        }
+
+        main.open {
+            margin-left: 250px; /* Da espacio cuando la barra lateral está abierta */
+        }
+    </style>
+</head>
+
+<body class="main-layout">
+
+    <!-- Barra lateral (sidenav) -->
+    <div id="mySidenav" class="sidenav">
+        <!-- Botón de cerrar que se muestra cuando la barra lateral está abierta -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/path">Buscar camino</a>
+        <a href="/ady">Adyacencias</a>
+        <a href="/mapa">Grafo</a>
+        <a href="/list">Lista de iglesias</a>
+    </div>
+
+    <!-- Barra de navegación superior -->
+    <header>
+       
+        <!-- Icono hamburguesa para abrir la barra lateral -->
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="container mt-4">
+        {% block content %}{% endblock %}
+    </main>
+
+    <script>
+        // Funciones para abrir y cerrar el menú lateral
+        function openNav() {
+            document.getElementById("mySidenav").classList.add("open"); // Muestra la barra lateral
+            document.querySelector("main").classList.add("open"); // Desplaza el contenido a la derecha
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").classList.remove("open"); // Oculta la barra lateral
+            document.querySelector("main").classList.remove("open"); // Restaura el contenido a su lugar original
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

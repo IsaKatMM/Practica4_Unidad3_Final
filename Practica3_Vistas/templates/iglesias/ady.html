@@ -1,0 +1,76 @@
+{% extends 'templateFirst.html' %}
+
+{% block content %}
+<div class="text-center mb-6">
+    <h1 class="text-3xl font-semibold text-pink-600">Adyacencias</h1>
+   
+</div>
+
+<div class="pb-6">
+    <!-- La tabla tiene un fondo rosa claro y las letras en negro -->
+    <table id="tabla" class="table-auto w-3/4 mx-auto bg-pink-100 text-black rounded-lg shadow-lg overflow-hidden border-2 border-pink-600">
+        <thead class="bg-pink-200 text-black">
+            <tr>
+                <th class="px-3 py-2 text-center border border-pink-600">-----</th>
+                {% for item in lista %}
+                    <th class="px-3 py-2 text-center border border-pink-600">{{ item.name }}</th>  <!-- Mostrar el nombre del parque en la cabecera -->
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody class="text-black">
+            {% for item in lista %}
+                <tr class="border-t border-pink-600 bg-pink-100">
+                    <td class="px-3 py-2 font-semibold text-center border border-pink-600">{{ item.name }}</td>  <!-- Nombre del parque en la primera columna -->
+                    {% for otro_item in lista %}
+                        <td class="px-3 py-2 text-center border border-pink-600">
+                            {% set found = false %}
+                            {% for destino in item.destinations %}
+                                {% if destino.to == otro_item.labelId %}
+                                    <span class="text-black">{{ destino.weight }}</span>  <!-- Mostrar el peso de la adyacencia -->
+                                    {% set found = true %}
+                                {% endif %}
+                            {% endfor %}
+                            {% if not found %}
+                                <span class="text-gray-400">---</span>  <!-- Si no hay adyacencia, mostrar '---' -->
+                            {% endif %}
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Mensaje de carga -->
+<div id="loadingMessage" class="hidden text-center mt-4">
+    <p class="text-black">Cargando...</p>
+</div>
+
+<script>
+    document.getElementById("nuevaAdyacencia").addEventListener("click", function() {
+        // Mostrar el mensaje de carga
+        document.getElementById("loadingMessage").classList.remove("hidden");
+
+        // Hacer la solicitud GET a Flask para la nueva adyacencia
+        fetch('/nueva_adyacencia', {
+            method: 'GET'
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Recargar la página para reflejar los cambios
+            location.reload();  // Refresca la página
+
+            // Ocultar el mensaje de carga
+            document.getElementById("loadingMessage").classList.add("hidden");
+        })
+        .catch(error => {
+            // Manejo de errores
+            console.error('Error:', error);
+
+            // Ocultar el mensaje de carga
+            document.getElementById("loadingMessage").classList.add("hidden");
+        });
+    });
+</script>
+
+{% endblock %}
