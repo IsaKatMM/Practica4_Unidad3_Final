@@ -37,11 +37,11 @@ def dfs(origen):
             else:
                 return jsonify({"error": "La respuesta está vacía"}), 500
         else:
-            return jsonify({"error": f"Error al ejecutar BFS. Código de estado: {r.status_code}"}), r.status_code
+            return jsonify({"error": f"Error al ejecutar DFS. Código de estado: {r.status_code}"}), r.status_code
 
     except requests.exceptions.RequestException as e:
         print("Error de conexión:", str(e))
-        return jsonify({"error": "No se pudo conectar con el servidor de BFS"}), 500
+        return jsonify({"error": "No se pudo conectar con el servidor de DFS"}), 500
 
 
 
@@ -83,11 +83,11 @@ def calc(origen, destino, algoritmo):
             data = r.json()
             return jsonify(data)
         else:
-            return jsonify({"error": "No se pudo calcular el camino corto"}), r.status_code
+            return jsonify({"error": "error"}), r.status_code
 
     except requests.exceptions.RequestException as e:
         print("Error de conexión:", str(e))
-        return jsonify({"error": "No se pudo conectar con el servidor de cálculo"}), 500
+        return jsonify({"error": "error"}), 500
     
 @router.route('/path', methods=['GET'])
 def frm():
